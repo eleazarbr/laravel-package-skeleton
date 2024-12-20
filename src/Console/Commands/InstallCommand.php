@@ -2,7 +2,7 @@
 
 namespace Eresendez\PackageSkeleton\Console\Commands;
 
-use Eresendez\PackageSkeleton\Seeders\SkeletonSeeder;
+use Eresendez\PackageSkeleton\Seeders\PackageSeeder;
 use Illuminate\Console\Command;
 
 class InstallCommand extends Command
@@ -51,7 +51,7 @@ class InstallCommand extends Command
 
         // Seed database
         $this->call('db:seed', [
-            '--class' => SkeletonSeeder::class,
+            '--class' => PackageSeeder::class,
         ]);
         $this->info('✔ Seeders ran successfully.');
 

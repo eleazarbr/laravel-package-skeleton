@@ -3,7 +3,7 @@
 namespace Tests\Unit;
 
 use Eresendez\PackageSkeleton\PackageServiceProvider;
-use Eresendez\PackageSkeleton\Seeders\SkeletonSeeder;
+use Eresendez\PackageSkeleton\Seeders\PackageSeeder;
 use Illuminate\Support\Facades\File;
 use Tests\TestCase;
 
@@ -41,9 +41,9 @@ class SkeletonServiceProviderTest extends TestCase
         $this->assertDirectoryExists($migrationPath, 'Migration directory does not exist.');
     }
 
-    public function testItRunsTheSkeletonSeeder()
+    public function testItRunsThePackageSeeder()
     {
-        $this->seed(SkeletonSeeder::class);
+        $this->seed(PackageSeeder::class);
         $this->assertTrue(true);
     }
 

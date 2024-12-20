@@ -4,7 +4,7 @@ namespace Eresendez\PackageSkeleton\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class SkeletonSeeder extends Seeder
+class PackageSeeder extends Seeder
 {
     /**
      * Run the database seeds.
