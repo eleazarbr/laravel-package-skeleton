@@ -35,7 +35,7 @@ class PackageServiceProvider extends ServiceProvider
         ], 'package-vue');
 
         $this->publishes([
-            __DIR__.'/../resources/views' => resource_path('views/vendor/package-skeleton/views'),
+            __DIR__.'/../resources/views' => resource_path('views/vendor/package-skeleton'),
         ], 'package-views');
 
         $this->publishes([
