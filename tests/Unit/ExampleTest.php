@@ -1,8 +1,8 @@
 <?php
 
-namespace Eresendez\LaravelPackageSkeleton\Tests\Unit;
+namespace Tests\Unit;
 
-use Eresendez\LaravelPackageSkeleton\Tests\TestCase;
+use Tests\TestCase;
 
 class ExampleTest extends TestCase
 {
