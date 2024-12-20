@@ -1,0 +1,22 @@
+# Laravel & PHP.
+vendor/
+node_modules/
+.env
+.phpunit.result.cache
+coverage.xml
+
+# IDEs and editors.
+/.idea/
+/.vscode/
+/*.sublime-project
+/*.sublime-workspace
+
+# Composer.
+composer.lock
+
+# NPM.
+package-lock.json
+
+# OS generated files
+.DS_Store
+Thumbs.db
