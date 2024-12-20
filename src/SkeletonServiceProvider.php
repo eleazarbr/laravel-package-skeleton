@@ -2,6 +2,7 @@
 
 namespace Eresendez\LaravelPackageSkeleton;
 
+use Eresendez\LaravelPackageSkeleton\Console\Commands\InstallCommand;
 use Illuminate\Support\ServiceProvider;
 
 class SkeletonServiceProvider extends ServiceProvider
@@ -18,6 +19,10 @@ class SkeletonServiceProvider extends ServiceProvider
         $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
 
         $this->loadRoutesFrom(__DIR__.'/../routes/api.php');
+
+        $this->commands([
+            InstallCommand::class,
+        ]);
 
         $this->publishes([
             __DIR__.'/../config/skeleton.php' => config_path('skeleton.php'),

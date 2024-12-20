@@ -6,6 +6,7 @@ use Eresendez\LaravelPackageSkeleton\Seeders\SkeletonSeeder;
 use Eresendez\LaravelPackageSkeleton\SkeletonServiceProvider;
 use Illuminate\Support\Facades\File;
 use Tests\TestCase;
+use Illuminate\Support\Facades\Artisan;
 
 class SkeletonServiceProviderTest extends TestCase
 {
@@ -98,5 +99,18 @@ class SkeletonServiceProviderTest extends TestCase
         app()->setLocale('es');
         $translation = __('skeleton::messages.welcome');
         $this->assertEquals('¡Bienvenido a Skeleton!', $translation, 'Spanish translation failed.');
+    }
+
+    public function testInstallSkeletonPackageCommand()
+    {
+        $this->artisan('package-skeleton:install')
+            ->expectsOutput('Installing Skeleton Package...')
+            ->expectsOutput('✔ Assets published successfully.')
+            ->expectsOutput('✔ Configuration published successfully.')
+            ->expectsOutput('✔ Migrations published successfully.')
+            ->expectsOutput('✔ Migrations ran successfully.')
+            ->expectsOutput('✔ Seeders ran successfully.')
+            ->expectsOutput('Skeleton Package installed successfully!')
+            ->assertExitCode(0);
     }
 }
