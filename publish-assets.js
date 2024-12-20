@@ -2,7 +2,7 @@ const { execSync } = require("child_process");
 require("dotenv").config();
 
 const laravelAppPath = process.env.LARAVEL_APP_PATH || "../your-laravel-app";
-const tagToPublish = process.env.TAG_TO_PUBLISH || "skeleton-assets";
+const tagToPublish = process.env.TAG_TO_PUBLISH || "package-assets";
 
 try {
   console.log("Building assets...");

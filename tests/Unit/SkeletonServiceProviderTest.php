@@ -49,16 +49,16 @@ class SkeletonServiceProviderTest extends TestCase
 
     public function testItPublishesAssets()
     {
-        $this->artisan(self::VENDOR_PUBLISH, [self::OPTION_TAG => 'skeleton-assets'])
+        $this->artisan(self::VENDOR_PUBLISH, [self::OPTION_TAG => 'package-assets'])
             ->assertExitCode(0);
 
-        $publishedPath = public_path('vendor/skeleton/assets');
+        $publishedPath = public_path('vendor/package-skeleton/assets');
         $this->assertDirectoryExists($publishedPath, 'Assets were not published correctly.');
     }
 
     public function testItPublishesViews()
     {
-        $this->artisan(self::VENDOR_PUBLISH, [self::OPTION_TAG => 'skeleton-views'])
+        $this->artisan(self::VENDOR_PUBLISH, [self::OPTION_TAG => 'package-views'])
             ->assertExitCode(0);
 
         $publishedPath = resource_path('views/vendor/package-skeleton');
@@ -67,7 +67,7 @@ class SkeletonServiceProviderTest extends TestCase
 
     public function testItPublishesVueComponents()
     {
-        $this->artisan(self::VENDOR_PUBLISH, [self::OPTION_TAG => 'skeleton-vue'])
+        $this->artisan(self::VENDOR_PUBLISH, [self::OPTION_TAG => 'package-vue'])
             ->assertExitCode(0);
 
         $publishedPath = resource_path('js/vendor/package-skeleton');
@@ -76,7 +76,7 @@ class SkeletonServiceProviderTest extends TestCase
 
     public function testItPublishesConfigFile()
     {
-        $this->artisan(self::VENDOR_PUBLISH, [self::OPTION_TAG => 'skeleton-config'])
+        $this->artisan(self::VENDOR_PUBLISH, [self::OPTION_TAG => 'package-config'])
             ->assertExitCode(0);
 
         $configPath = config_path('package-skeleton.php');
@@ -107,13 +107,13 @@ class SkeletonServiceProviderTest extends TestCase
     public function testInstallSkeletonPackageCommand()
     {
         $this->artisan('package-skeleton:install')
-            ->expectsOutput('Installing Skeleton Package...')
+            ->expectsOutput('Installing Package...')
             ->expectsOutput('✔ Assets published successfully.')
             ->expectsOutput('✔ Configuration published successfully.')
             ->expectsOutput('✔ Migrations published successfully.')
             ->expectsOutput('✔ Migrations ran successfully.')
             ->expectsOutput('✔ Seeders ran successfully.')
-            ->expectsOutput('Skeleton Package installed successfully!')
+            ->expectsOutput('Package installed successfully!')
             ->assertExitCode(0);
     }
 }

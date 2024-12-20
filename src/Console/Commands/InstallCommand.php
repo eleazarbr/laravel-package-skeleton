@@ -22,25 +22,25 @@ class InstallCommand extends Command
      */
     public function handle()
     {
-        $this->info('Installing Skeleton Package...');
+        $this->info('Installing Package...');
 
         // Publish assets
         $this->call('vendor:publish', [
-            '--tag' => 'skeleton-assets',
+            '--tag' => 'package-assets',
             '--force' => true,
         ]);
         $this->info('✔ Assets published successfully.');
 
         // Publish config
         $this->call('vendor:publish', [
-            '--tag' => 'skeleton-config',
+            '--tag' => 'package-config',
             '--force' => true,
         ]);
         $this->info('✔ Configuration published successfully.');
 
         // Publish migrations
         $this->call('vendor:publish', [
-            '--tag' => 'skeleton-migrations',
+            '--tag' => 'package-migrations',
             '--force' => true,
         ]);
         $this->info('✔ Migrations published successfully.');
@@ -55,6 +55,6 @@ class InstallCommand extends Command
         ]);
         $this->info('✔ Seeders ran successfully.');
 
-        $this->info('Skeleton Package installed successfully!');
+        $this->info('Package installed successfully!');
     }
 }

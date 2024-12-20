@@ -20,26 +20,28 @@ class PackageServiceProvider extends ServiceProvider
 
         $this->loadRoutesFrom(__DIR__.'/../routes/api.php');
 
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'skeleton');
+
         $this->commands([
             InstallCommand::class,
         ]);
 
         $this->publishes([
             __DIR__.'/../config/skeleton.php' => config_path('package-skeleton.php'),
-        ], 'skeleton-config');
+        ], 'package-config');
 
         $this->publishes([
             __DIR__.'/../resources/js' => resource_path('js/vendor/package-skeleton/js'),
-        ], 'skeleton-vue');
+        ], 'package-vue');
 
         $this->publishes([
             __DIR__.'/../resources/views' => resource_path('views/vendor/package-skeleton/views'),
-        ], 'skeleton-views');
+        ], 'package-views');
 
         $this->publishes([
             __DIR__.'/../dist' => public_path('vendor/package-skeleton'),
             __DIR__.'/../resources/assets' => public_path('vendor/package-skeleton/assets'),
-        ], 'skeleton-assets');
+        ], 'package-assets');
     }
 
     /**
