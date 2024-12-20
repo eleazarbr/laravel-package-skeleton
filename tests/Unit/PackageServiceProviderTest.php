@@ -7,7 +7,7 @@ use Eresendez\PackageSkeleton\Seeders\PackageSeeder;
 use Illuminate\Support\Facades\File;
 use Tests\TestCase;
 
-class SkeletonServiceProviderTest extends TestCase
+class PackageServiceProviderTest extends TestCase
 {
     private const VENDOR_PUBLISH = 'vendor:publish';
 
@@ -104,7 +104,7 @@ class SkeletonServiceProviderTest extends TestCase
         $this->assertEquals('¡Bienvenido a Skeleton!', $translation, 'Spanish translation failed.');
     }
 
-    public function testInstallSkeletonPackageCommand()
+    public function testInstallPackageCommand()
     {
         $this->artisan('package-skeleton:install')
             ->expectsOutput('Installing Package...')
