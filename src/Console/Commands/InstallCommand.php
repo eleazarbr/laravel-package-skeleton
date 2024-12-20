@@ -1,8 +1,8 @@
 <?php
 
-namespace Eresendez\LaravelPackageSkeleton\Console\Commands;
+namespace Eresendez\PackageSkeleton\Console\Commands;
 
-use Eresendez\LaravelPackageSkeleton\Seeders\SkeletonSeeder;
+use Eresendez\PackageSkeleton\Seeders\SkeletonSeeder;
 use Illuminate\Console\Command;
 
 class InstallCommand extends Command

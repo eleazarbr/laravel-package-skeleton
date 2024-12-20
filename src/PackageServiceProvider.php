@@ -1,11 +1,11 @@
 <?php
 
-namespace Eresendez\LaravelPackageSkeleton;
+namespace Eresendez\PackageSkeleton;
 
-use Eresendez\LaravelPackageSkeleton\Console\Commands\InstallCommand;
+use Eresendez\PackageSkeleton\Console\Commands\InstallCommand;
 use Illuminate\Support\ServiceProvider;
 
-class SkeletonServiceProvider extends ServiceProvider
+class PackageServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the service provider.
@@ -14,7 +14,7 @@ class SkeletonServiceProvider extends ServiceProvider
     {
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 
-        $this->loadTranslationsFrom(__DIR__.'/../lang', 'skeleton');
+        $this->loadTranslationsFrom(__DIR__.'/../lang', 'package-skeleton');
 
         $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
 
@@ -25,20 +25,20 @@ class SkeletonServiceProvider extends ServiceProvider
         ]);
 
         $this->publishes([
-            __DIR__.'/../config/skeleton.php' => config_path('skeleton.php'),
+            __DIR__.'/../config/skeleton.php' => config_path('package-skeleton.php'),
         ], 'skeleton-config');
 
         $this->publishes([
-            __DIR__.'/../resources/js' => resource_path('js/vendor/skeleton/js'),
+            __DIR__.'/../resources/js' => resource_path('js/vendor/package-skeleton/js'),
         ], 'skeleton-vue');
 
         $this->publishes([
-            __DIR__.'/../resources/views' => resource_path('views/vendor/skeleton/views'),
+            __DIR__.'/../resources/views' => resource_path('views/vendor/package-skeleton/views'),
         ], 'skeleton-views');
 
         $this->publishes([
-            __DIR__.'/../dist' => public_path('vendor/skeleton'),
-            __DIR__.'/../resources/assets' => public_path('vendor/skeleton/assets'),
+            __DIR__.'/../dist' => public_path('vendor/package-skeleton'),
+            __DIR__.'/../resources/assets' => public_path('vendor/package-skeleton/assets'),
         ], 'skeleton-assets');
     }
 

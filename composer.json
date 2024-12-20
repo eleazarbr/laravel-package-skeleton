@@ -21,9 +21,9 @@
     },
     "autoload": {
         "psr-4": {
-            "Eresendez\\LaravelPackageSkeleton\\": "src/",
-            "Eresendez\\LaravelPackageSkeleton\\Factories\\": "database/factories/",
-            "Eresendez\\LaravelPackageSkeleton\\Seeders\\": "database/seeders/"
+            "Eresendez\\PackageSkeleton\\": "src/",
+            "Eresendez\\PackageSkeleton\\Factories\\": "database/factories/",
+            "Eresendez\\PackageSkeleton\\Seeders\\": "database/seeders/"
         }
     },
     "autoload-dev": {
@@ -34,7 +34,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Eresendez\\LaravelPackageSkeleton\\ServiceProvider"
+                "Eresendez\\PackageSkeleton\\PackageServiceProvider"
             ]
         }
     },

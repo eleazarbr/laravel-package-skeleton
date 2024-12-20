@@ -2,30 +2,33 @@
 
 namespace Tests\Unit;
 
-use Eresendez\LaravelPackageSkeleton\Seeders\SkeletonSeeder;
-use Eresendez\LaravelPackageSkeleton\SkeletonServiceProvider;
+use Eresendez\PackageSkeleton\PackageServiceProvider;
+use Eresendez\PackageSkeleton\Seeders\SkeletonSeeder;
 use Illuminate\Support\Facades\File;
 use Tests\TestCase;
-use Illuminate\Support\Facades\Artisan;
 
 class SkeletonServiceProviderTest extends TestCase
 {
+    private const VENDOR_PUBLISH = 'vendor:publish';
+
+    private const OPTION_TAG = '--tag';
+
     /**
      * Get package providers.
      */
     protected function getPackageProviders($app): array
     {
         return [
-            SkeletonServiceProvider::class,
+            PackageServiceProvider::class,
         ];
     }
 
     protected function tearDown(): void
     {
-        File::deleteDirectory(public_path('vendor/skeleton'));
-        File::deleteDirectory(resource_path('views/vendor/skeleton'));
-        File::deleteDirectory(resource_path('js/vendor/skeleton'));
-        File::delete(config_path('skeleton.php'));
+        File::deleteDirectory(public_path('vendor/package-skeleton'));
+        File::deleteDirectory(resource_path('views/vendor/package-skeleton'));
+        File::deleteDirectory(resource_path('js/vendor/package-skeleton'));
+        File::delete(config_path('package-skeleton.php'));
 
         parent::tearDown();
     }
@@ -46,7 +49,7 @@ class SkeletonServiceProviderTest extends TestCase
 
     public function testItPublishesAssets()
     {
-        $this->artisan('vendor:publish', ['--tag' => 'skeleton-assets'])
+        $this->artisan(self::VENDOR_PUBLISH, [self::OPTION_TAG => 'skeleton-assets'])
             ->assertExitCode(0);
 
         $publishedPath = public_path('vendor/skeleton/assets');
@@ -55,28 +58,28 @@ class SkeletonServiceProviderTest extends TestCase
 
     public function testItPublishesViews()
     {
-        $this->artisan('vendor:publish', ['--tag' => 'skeleton-views'])
+        $this->artisan(self::VENDOR_PUBLISH, [self::OPTION_TAG => 'skeleton-views'])
             ->assertExitCode(0);
 
-        $publishedPath = resource_path('views/vendor/skeleton');
+        $publishedPath = resource_path('views/vendor/package-skeleton');
         $this->assertDirectoryExists($publishedPath, 'Views were not published correctly.');
     }
 
     public function testItPublishesVueComponents()
     {
-        $this->artisan('vendor:publish', ['--tag' => 'skeleton-vue'])
+        $this->artisan(self::VENDOR_PUBLISH, [self::OPTION_TAG => 'skeleton-vue'])
             ->assertExitCode(0);
 
-        $publishedPath = resource_path('js/vendor/skeleton');
+        $publishedPath = resource_path('js/vendor/package-skeleton');
         $this->assertDirectoryExists($publishedPath, 'Vue components were not published correctly.');
     }
 
     public function testItPublishesConfigFile()
     {
-        $this->artisan('vendor:publish', ['--tag' => 'skeleton-config'])
+        $this->artisan(self::VENDOR_PUBLISH, [self::OPTION_TAG => 'skeleton-config'])
             ->assertExitCode(0);
 
-        $configPath = config_path('skeleton.php');
+        $configPath = config_path('package-skeleton.php');
         $this->assertFileExists($configPath, 'Config file was not published correctly.');
     }
 
@@ -93,11 +96,11 @@ class SkeletonServiceProviderTest extends TestCase
 
     public function testItLoadsTranslations()
     {
-        $translation = __('skeleton::messages.welcome');
+        $translation = __('package-skeleton::messages.welcome');
         $this->assertEquals('Welcome to Skeleton!', $translation, 'English translation failed.');
 
         app()->setLocale('es');
-        $translation = __('skeleton::messages.welcome');
+        $translation = __('package-skeleton::messages.welcome');
         $this->assertEquals('¡Bienvenido a Skeleton!', $translation, 'Spanish translation failed.');
     }
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Eresendez\LaravelPackageSkeleton\Seeders;
+namespace Eresendez\PackageSkeleton\Seeders;
 
 use Illuminate\Database\Seeder;
 

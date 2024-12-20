@@ -15,7 +15,7 @@ composer require eleazarbr/laravel-package-skeleton
 After installing the package, you can use it in your Laravel application. Here is an example of how to do it:
 
 ```php
-use Eresendez\LaravelPackageSkeleton\ExampleClass;
+use Eresendez\PackageSkeleton\ExampleClass;
 
 $example = new ExampleClass();
 echo $example->sayHello();
@@ -26,7 +26,7 @@ echo $example->sayHello();
 If you need to configure the package, you can publish the configuration file using the following command:
 
 ```bash
-php artisan vendor:publish --provider="Eresendez\LaravelPackageSkeleton\ServiceProvider"
+php artisan vendor:publish --provider="Eresendez\PackageSkeleton\ServiceProvider"
 ```
 
 This will create a configuration file in `config/laravel-package-skeleton.php` where you can adjust the options according to your needs.
