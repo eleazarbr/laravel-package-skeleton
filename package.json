@@ -1,0 +1,34 @@
+{
+    "name": "laravel-package-skeleton",
+    "version": "1.0.0",
+    "description": "A Laravel package with Vue, Vite and ESLint configured.",
+    "main": "index.js",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "watch": "vite build --watch",
+        "preview": "vite preview",
+        "publish": "npm run build && php ../your-laravel-app/artisan vendor:publish --tag=skeleton-assets --force",
+        "sync": "npm run watch | npm run publish",
+        "lint": "eslint --ext .js,.vue resources/js",
+        "lint:fix": "eslint --fix --ext .js,.vue resources/js"
+    },
+    "keywords": [
+        "laravel",
+        "vue",
+        "vite",
+        "eslint",
+        "blade"
+    ],
+    "author": "Eleazar Resendez",
+    "license": "MIT",
+    "devDependencies": {
+        "@vitejs/plugin-vue": "^4.6.2",
+        "eslint": "^8.57.1",
+        "eslint-plugin-vue": "^9.32.0",
+        "vite": "^4.5.5"
+    },
+    "dependencies": {
+        "vue": "^3.3.0"
+    }
+}
