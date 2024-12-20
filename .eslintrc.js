@@ -1,6 +1,7 @@
 module.exports = {
   env: {
       browser: true,
+      node: true,
       es2021: true,
   },
   extends: [
@@ -24,5 +25,6 @@ module.exports = {
     "no-plusplus": ["error", { allowForLoopAfterthoughts: true }],
     "vue/no-v-html": "off",
     "no-restricted-globals": ["error", "event", "fdescribe"],
+    "vue/script-indent": ["error", 2, { baseIndent: 1 }],
   },
 };

@@ -6,10 +6,9 @@
     "scripts": {
         "dev": "vite",
         "build": "vite build",
-        "watch": "vite build --watch",
+        "watch": "node watch-and-publish.js",
         "preview": "vite preview",
-        "publish": "npm run build && php ../your-laravel-app/artisan vendor:publish --tag=skeleton-assets --force",
-        "sync": "npm run watch | npm run publish",
+        "publish": "vite build && node publish-assets.js",
         "lint": "eslint --ext .js,.vue resources/js",
         "lint:fix": "eslint --fix --ext .js,.vue resources/js"
     },
@@ -29,6 +28,7 @@
         "vite": "^4.5.5"
     },
     "dependencies": {
+        "dotenv": "^16.4.7",
         "vue": "^3.3.0"
     }
 }
