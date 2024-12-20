@@ -16,7 +16,8 @@
     },
     "require-dev": {
         "orchestra/testbench": "^8.0 || ^9.0",
-        "phpunit/phpunit": "^10.0"
+        "phpunit/phpunit": "^10.0",
+        "laravel/pint": "^1.18"
     },
     "autoload": {
         "psr-4": {
@@ -36,6 +37,9 @@
                 "Eresendez\\LaravelPackageSkeleton\\ServiceProvider"
             ]
         }
+    },
+    "scripts": {
+        "pint": "pint"
     },
     "minimum-stability": "dev",
     "prefer-stable": true

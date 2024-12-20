@@ -16,7 +16,7 @@ class SkeletonServiceProvider extends ServiceProvider
         $this->loadTranslationsFrom(__DIR__.'/../lang', 'skeleton');
 
         $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
-        
+
         $this->loadRoutesFrom(__DIR__.'/../routes/api.php');
 
         $this->publishes([

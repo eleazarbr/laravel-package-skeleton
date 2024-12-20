@@ -2,10 +2,10 @@
 
 namespace Tests\Unit;
 
-use Tests\TestCase;
-use Illuminate\Support\Facades\File;
-use Eresendez\LaravelPackageSkeleton\SkeletonServiceProvider;
 use Eresendez\LaravelPackageSkeleton\Seeders\SkeletonSeeder;
+use Eresendez\LaravelPackageSkeleton\SkeletonServiceProvider;
+use Illuminate\Support\Facades\File;
+use Tests\TestCase;
 
 class SkeletonServiceProviderTest extends TestCase
 {
@@ -29,8 +29,7 @@ class SkeletonServiceProviderTest extends TestCase
         parent::tearDown();
     }
 
-    /** @test */
-    public function it_loads_migrations()
+    public function testItLoadsMigrations()
     {
         $migrationPath = database_path('migrations');
         $this->artisan('migrate')->assertExitCode(0);
@@ -38,15 +37,13 @@ class SkeletonServiceProviderTest extends TestCase
         $this->assertDirectoryExists($migrationPath, 'Migration directory does not exist.');
     }
 
-    /** @test */
-    public function it_runs_the_skeleton_seeder()
+    public function testItRunsTheSkeletonSeeder()
     {
         $this->seed(SkeletonSeeder::class);
         $this->assertTrue(true);
     }
 
-    /** @test */
-    public function it_publishes_assets()
+    public function testItPublishesAssets()
     {
         $this->artisan('vendor:publish', ['--tag' => 'skeleton-assets'])
             ->assertExitCode(0);
@@ -55,8 +52,7 @@ class SkeletonServiceProviderTest extends TestCase
         $this->assertDirectoryExists($publishedPath, 'Assets were not published correctly.');
     }
 
-    /** @test */
-    public function it_publishes_views()
+    public function testItPublishesViews()
     {
         $this->artisan('vendor:publish', ['--tag' => 'skeleton-views'])
             ->assertExitCode(0);
@@ -65,8 +61,7 @@ class SkeletonServiceProviderTest extends TestCase
         $this->assertDirectoryExists($publishedPath, 'Views were not published correctly.');
     }
 
-    /** @test */
-    public function it_publishes_vue_components()
+    public function testItPublishesVueComponents()
     {
         $this->artisan('vendor:publish', ['--tag' => 'skeleton-vue'])
             ->assertExitCode(0);
@@ -75,8 +70,7 @@ class SkeletonServiceProviderTest extends TestCase
         $this->assertDirectoryExists($publishedPath, 'Vue components were not published correctly.');
     }
 
-    /** @test */
-    public function it_publishes_config_file()
+    public function testItPublishesConfigFile()
     {
         $this->artisan('vendor:publish', ['--tag' => 'skeleton-config'])
             ->assertExitCode(0);
@@ -85,8 +79,7 @@ class SkeletonServiceProviderTest extends TestCase
         $this->assertFileExists($configPath, 'Config file was not published correctly.');
     }
 
-    /** @test */
-    public function it_loads_routes()
+    public function testItLoadsRoutes()
     {
         $response = $this->get('/skeleton');
         $response->assertStatus(200);
@@ -97,8 +90,7 @@ class SkeletonServiceProviderTest extends TestCase
         $response->assertJson(['message' => 'Skeleton API']);
     }
 
-    /** @test */
-    public function it_loads_translations()
+    public function testItLoadsTranslations()
     {
         $translation = __('skeleton::messages.welcome');
         $this->assertEquals('Welcome to Skeleton!', $translation, 'English translation failed.');

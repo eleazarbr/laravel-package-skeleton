@@ -31,6 +31,17 @@ php artisan vendor:publish --provider="Eresendez\LaravelPackageSkeleton\ServiceP
 
 This will create a configuration file in `config/laravel-package-skeleton.php` where you can adjust the options according to your needs.
 
+## Code Style
+
+This package uses [Laravel Pint](https://github.com/laravel/pint) for code formatting.
+
+### Analyze Code
+Run Pint to fix your code.
+
+```bash
+composer pint
+```
+
 ## Contributing
 
 If you want to contribute to this project, please follow these steps:
